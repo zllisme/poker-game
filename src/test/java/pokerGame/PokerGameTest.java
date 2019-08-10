@@ -71,4 +71,31 @@ class PokerGameTest {
         //then
         assertEquals(1, result);
     }
+
+    @Test
+    void should_return_1_when_call_play_given_2H3D5S9CKD_and_2c3H4SJCKH() {
+        //given
+        List<Poker> pokerList1 = generatePokersList("2H 3D 5S JC KD");
+        List<Poker> pokerList2 = generatePokersList("2c 3H 4S JH KH");
+        //when
+        PokerGame pokerGame = new PokerGame();
+        int result = pokerGame.play(pokerList1, pokerList2);
+        //then
+        assertEquals(1, result);
+    }
+
+    @Test
+    void should_return_1_when_call_play_given_2H2D5S9CKD_and_2c3H4S8CAH() {
+        //given
+        List<Poker> pokerList1 = generatePokersList("2H 2D 5S 9C KD");
+        List<Poker> pokerList2 = generatePokersList("2c 3H 4S 8C AH");
+        //when
+        PokerGame pokerGame = new PokerGame();
+        int result = pokerGame.play(pokerList1, pokerList2);
+        //then
+        assertEquals(1, result);
+
+    }
+
+
 }

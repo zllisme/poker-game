@@ -21,8 +21,14 @@ public class PokerGame
     }
 
 
+
     public int play(List<Poker> pokers1, List<Poker> pokers2) {
-        return compareMaxPoker(pokers1, pokers2);
+        PokerCluster pokerCluster1 = new PokerCluster(pokers1);
+        PokerCluster pokerCluster2 = new PokerCluster(pokers2);
+        if(!pokerCluster1.isHasPairPoker() && !pokerCluster2.isHasPairPoker()){
+            return compareMaxPoker(pokers1, pokers2);
+        }
+        return pokerCluster1.isHasPairPoker() ? 1 : 2;
     }
 
 }
