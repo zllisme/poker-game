@@ -62,7 +62,12 @@ when call play
 then output 2
 ```
 
-
+* 9
+```
+given 2H 2D 2S 9C KD
+when call isHasThreeSamePoker
+then output true
+```
 
 
 

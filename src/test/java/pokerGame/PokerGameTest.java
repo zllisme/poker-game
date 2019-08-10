@@ -125,6 +125,18 @@ class PokerGameTest {
 
     }
 
+    @Test
+    void should_return_true_when_call_isHasThreeSamePoker_given_2H2D2S9CKD() {
+        //given
+        List<Poker> pokerList1 = generatePokersList("2H 2D 2S 9C KD");
+        PokerCluster pokerCluster = new PokerCluster(pokerList1);
+        //when
+        boolean result = pokerCluster.isHasThreeSamePoker();
+        //then
+        assertTrue(result);
+
+    }
+
 
 
 }

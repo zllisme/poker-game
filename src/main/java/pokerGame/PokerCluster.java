@@ -56,6 +56,10 @@ public class PokerCluster {
         return this.pairPokersNumbers.size() > 0;
     }
 
+    public boolean isHasThreeSamePoker() {
+        return this.threeSamePokersNumbers.size() > 0;
+    }
+
     public List<Integer> getPairPokersNumbers() {
         return pairPokersNumbers;
     }
