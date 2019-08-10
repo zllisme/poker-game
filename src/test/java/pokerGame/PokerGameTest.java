@@ -23,5 +23,22 @@ class PokerGameTest {
 
     }
 
+    @Test
+    void should_return_max_poker_when_call_findMaxPokerFromPokerList_given_pokers_list() {
+        //given
+        List<Poker> pokers = new ArrayList<>();
+        pokers.add(new Poker("2H"));
+        pokers.add(new Poker("3D"));
+        pokers.add(new Poker("KD"));
+        pokers.add(new Poker("9C"));
+        pokers.add(new Poker("4H"));
+        //when
+        PokerGame pokerGame = new PokerGame();
+        Poker maxPoker = pokerGame.findMaxPokerFromPokerList(pokers);
+        //then
+        assertEquals(13, maxPoker.getNumber());
+
+    }
+
 
 }

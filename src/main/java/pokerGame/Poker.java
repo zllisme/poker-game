@@ -9,7 +9,7 @@ public class Poker implements Comparable{
     private final static String ORDERS_SEQUENCE = "234567891JQKA";
 
     public Poker(String poker) {
-        this.number = ORDERS_SEQUENCE.indexOf(poker.charAt(0));
+        this.number = ORDERS_SEQUENCE.indexOf(poker.charAt(0)) + 2;
         this.type = poker.length() == 3 ? poker.charAt(2) : poker.charAt(1);
     }
 
