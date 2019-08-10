@@ -3,12 +3,20 @@ package pokerGame;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class PokerGameTest {
+
+    List<Poker> generatePokersList(String pokers) {
+        String[] pokersArr = pokers.split(" ");
+        List<Poker> pokerList = new ArrayList<>();
+        for (int i = 0; i < pokersArr.length; i++) {
+            pokerList.add(new Poker(pokersArr[i]));
+        }
+        return pokerList;
+    }
 
 
     @Test
@@ -40,5 +48,16 @@ class PokerGameTest {
 
     }
 
+    @Test
+    void should_return_2_when_call_play_given_2H3D5S9CKD_and_2c3H4S8CAH() {
+        //given
+        List<Poker> pokerList1 = generatePokersList("2H 3D 5S 9C KD");
+        List<Poker> pokerList2 = generatePokersList("2c 3H 4S 8C AH");
+        //when
+        PokerGame pokerGame = new PokerGame();
+        int result = pokerGame.play(pokerList1, pokerList2);
+        //then
+        assertEquals(2, result);
 
+    }
 }
