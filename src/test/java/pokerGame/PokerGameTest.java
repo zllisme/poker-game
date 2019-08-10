@@ -41,34 +41,33 @@ class PokerGameTest {
         pokers.add(new Poker("9C"));
         pokers.add(new Poker("4H"));
         //when
-        PokerGame pokerGame = new PokerGame();
-        Poker maxPoker = pokerGame.findMaxPokerFromPokerList(pokers);
+        Poker maxPoker = PokerCluster.findMaxPoker(pokers);
         //then
         assertEquals(13, maxPoker.getNumber());
 
     }
 
     @Test
-    void should_return_2_when_call_play_given_2H3D5S9CKD_and_2c3H4S8CAH() {
+    void should_return_2_when_call_compareMaxPoker_given_2H3D5S9CKD_and_2c3H4S8CAH() {
         //given
         List<Poker> pokerList1 = generatePokersList("2H 3D 5S 9C KD");
         List<Poker> pokerList2 = generatePokersList("2c 3H 4S 8C AH");
         //when
         PokerGame pokerGame = new PokerGame();
-        int result = pokerGame.play(pokerList1, pokerList2);
+        int result = pokerGame.compareMaxPoker(pokerList1, pokerList2);
         //then
         assertEquals(2, result);
 
     }
 
     @Test
-    void should_return_1_when_call_play_given_2H3D5S9CKD_and_2c3H4SJCKH() {
+    void should_return_1_when_call_compareMaxPoker_given_2H3D5S9CKD_and_2c3H4SJCKH() {
         //given
         List<Poker> pokerList1 = generatePokersList("2H 3D 5S JC KD");
         List<Poker> pokerList2 = generatePokersList("2c 3H 4S JH KH");
         //when
         PokerGame pokerGame = new PokerGame();
-        int result = pokerGame.play(pokerList1, pokerList2);
+        int result = pokerGame.compareMaxPoker(pokerList1, pokerList2);
         //then
         assertEquals(1, result);
     }
