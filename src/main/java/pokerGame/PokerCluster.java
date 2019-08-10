@@ -1,25 +1,22 @@
 package pokerGame;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class PokerCluster {
 
     private List<Poker> pokers;
 
-    private Map<Integer, Integer> pairPokersCounts;
+    private List<Integer> pairPokersNumbers;
 
-    private Map<Integer, Integer> threeSamePokersCount;
+    private List<Integer> threeSamePokersNumbers;
 
-    private Map<Integer, Integer> fourSamePokersCount;
+    private List<Integer> fourSamePokersNumbers;
 
     public PokerCluster(List<Poker> pokers) {
         this.pokers = pokers;
-        this.pairPokersCounts = new HashMap<>();
-        this.threeSamePokersCount = new HashMap<>();
-        this.fourSamePokersCount = new HashMap<>();
+        this.pairPokersNumbers = new ArrayList<>();
+        this.threeSamePokersNumbers = new ArrayList<>();
+        this.fourSamePokersNumbers = new ArrayList<>();
         calculateMutipleCounts();
     }
 
@@ -44,19 +41,30 @@ public class PokerCluster {
             Integer value = count.getValue();
             Integer number = count.getKey();
             if(value == 2) {
-                this.pairPokersCounts.put(number, value);
+                this.pairPokersNumbers.add(number);
             }
             if(value == 3) {
-                this.threeSamePokersCount.put(number, value);
+                this.threeSamePokersNumbers.add(number);
             }
             if(value == 4) {
-                this.fourSamePokersCount.put(number, value);
+                this.fourSamePokersNumbers.add(number);
             }
         }
     }
 
     public boolean isHasPairPoker() {
-        return this.pairPokersCounts.size() > 0;
+        return this.pairPokersNumbers.size() > 0;
     }
 
+    public List<Integer> getPairPokersNumbers() {
+        return pairPokersNumbers;
+    }
+
+    public List<Integer> getThreeSamePokersNumbers() {
+        return threeSamePokersNumbers;
+    }
+
+    public List<Integer> getFourSamePokersNumbers() {
+        return fourSamePokersNumbers;
+    }
 }

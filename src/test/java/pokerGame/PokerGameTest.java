@@ -97,5 +97,34 @@ class PokerGameTest {
 
     }
 
+    @Test
+    void should_return_2_when_call_compareBothHasPair_given_2H2D5S9CKD_and_3c3H3S8CAH() {
+        //given
+        List<Poker> pokerList1 = generatePokersList("2H 2D 5S 9C KD");
+        List<Poker> pokerList2 = generatePokersList("3c 3H 4S 8C AH");
+        PokerCluster pokerCluster1 = new PokerCluster(pokerList1);
+        PokerCluster pokerCluster2 = new PokerCluster(pokerList2);
+        //when
+        PokerGame pokerGame = new PokerGame();
+        int result = pokerGame.compareBothHasPair(pokerCluster1, pokerCluster2);
+        //then
+        assertEquals(2, result);
+
+    }
+
+    @Test
+    void should_return_2_when_call_play_given_2H2D5S9CKD_and_3c3H3S8CAH() {
+        //given
+        List<Poker> pokerList1 = generatePokersList("2H 2D 5S 9C KD");
+        List<Poker> pokerList2 = generatePokersList("3c 3H 4S 8C AH");
+        //when
+        PokerGame pokerGame = new PokerGame();
+        int result = pokerGame.play(pokerList1, pokerList2);
+        //then
+        assertEquals(2, result);
+
+    }
+
+
 
 }

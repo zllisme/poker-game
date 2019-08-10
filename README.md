@@ -29,4 +29,40 @@ when call compareMaxPoker
 then output 1
 ```
 
+* 5
+
+```
+given 2H 3D 5S JC KD | 2c 3H 4S JH KH
+when call play
+then output 1
+```
+
+
+* 6
+
+```
+given 2H 2D 5S 9C KD | 2c 3H 4S 8C AH
+when call play
+then output 1
+```
+
+* 7
+
+```
+given 2H 2D 5S 9C KD | 3c 3H 4S 8C AH
+when call compareBothHasPair
+then output 2
+```
+
+* 8
+
+```
+given 2H 2D 5S 9C KD | 3c 3H 4S 8C AH
+when call play
+then output 2
+```
+
+
+
+
 
