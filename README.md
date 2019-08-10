@@ -69,5 +69,12 @@ when call isHasThreeSamePoker
 then output true
 ```
 
+* 10
+```
+given 2H 2D 2S 9C KD
+when call isHasFourSamePoker
+then output true
+```
+
 
 
