@@ -161,6 +161,18 @@ class PokerGameTest {
 
     }
 
+    @Test
+    void should_return_true_when_call_isSameType_given_2H7H3H5H6H() {
+        //given
+        List<Poker> pokerList1 = generatePokersList("2H 7H 3H 5H 6H");
+        PokerCluster pokerCluster = new PokerCluster(pokerList1);
+        //when
+        boolean result = pokerCluster.isSameType();
+        //then
+        assertTrue(result);
+
+    }
+
 
 
 }
