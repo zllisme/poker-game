@@ -6,6 +6,8 @@ public class PokerCluster {
 
     private List<Poker> pokers;
 
+    private int grade;
+
     private List<Integer> pairPokersNumbers;
 
     private List<Integer> threeSamePokersNumbers;
@@ -18,6 +20,7 @@ public class PokerCluster {
         this.threeSamePokersNumbers = new ArrayList<>();
         this.fourSamePokersNumbers = new ArrayList<>();
         calculateMutipleCounts();
+        calculateGrade();
     }
 
     public static Poker findMaxPoker(List<Poker> pokerList) {
@@ -52,6 +55,19 @@ public class PokerCluster {
         }
     }
 
+    private void calculateGrade() {
+        if(isHasPairPoker()) {
+            this.grade = this.pairPokersNumbers.size() == 1 ? 2 : 3;
+        }
+        if(isHasThreeSamePoker()) {
+            this.grade = 4;
+        }
+        if(isHasFourSamePoker()) {
+            this.grade = 8;
+        }
+
+    }
+
     public boolean isHasPairPoker() {
         return this.pairPokersNumbers.size() > 0;
     }
@@ -63,6 +79,7 @@ public class PokerCluster {
     public boolean isHasFourSamePoker() {
         return this.fourSamePokersNumbers.size() > 0;
     }
+
 
     public List<Integer> getPairPokersNumbers() {
         return pairPokersNumbers;
