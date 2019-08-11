@@ -219,6 +219,22 @@ class PokerGameTest {
 
     }
 
+    @Test
+    void should_return_2_when_call_play_given_2H2C2D5H6C_and_3H3D3S2C6D() {
+        //given
+        List<Poker> pokerList1 = generatePokersList("2H 2C 2D 5H 6C");
+        List<Poker> pokerList2 = generatePokersList("3H 3D 3S 2C 6D");
+
+        //when
+        PokerGame pokerGame = new PokerGame();
+        int result1 = pokerGame.play(pokerList1, pokerList2);
+
+        //then
+        assertEquals(2, result1);
+
+
+    }
+
 
 
 

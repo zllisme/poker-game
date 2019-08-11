@@ -32,6 +32,16 @@ public class PokerGame
         return maxNumber1 > maxNumber2 ? 1 : 2;
     }
 
+    public int compareBothHasThreeSamePokes(PokerCluster pokerCluster1, PokerCluster pokerCluster2) {
+        List<Integer> threeSamePokersNumbers = pokerCluster1.getThreeSamePokersNumbers();
+        List<Integer> threeSamePokersNumbers1 = pokerCluster2.getThreeSamePokersNumbers();
+        Integer maxNumber1 = Collections.max(threeSamePokersNumbers);
+        Integer maxNumber2 = Collections.max(threeSamePokersNumbers1);
+        return maxNumber1 > maxNumber2 ? 1 : 2;
+    }
+
+
+
 
 
     public int play(List<Poker> pokers1, List<Poker> pokers2) {
@@ -43,10 +53,13 @@ public class PokerGame
         if(grade1 != grade2) {
             return grade1 > grade2 ? FIRST_PLAYER : SECOND_PLAYER;
         }
-        if(grade1 == 1) {
-            return compareMaxPoker(pokers1, pokers2);
+        if(grade1 == 2) {
+            return compareBothHasPair(pokerCluster1, pokerCluster2);
         }
-        return compareBothHasPair(pokerCluster1, pokerCluster2);
+        if(grade1 == 4) {
+            return compareBothHasThreeSamePokes(pokerCluster1, pokerCluster2);
+        }
+        return compareMaxPoker(pokers1, pokers2);
     }
 
 }
