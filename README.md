@@ -85,8 +85,43 @@ then output true
 * 12
 ```
 given 2H 7H 3H 5H 6H
-when call isSequence
+when call isSametype
 then output true
+```
+
+* 13
+```
+given 2H 7H 3H 5H 6H
+when call getGrade
+then output 6
+```
+
+* 14
+```
+given 2H 7H 3H 5H 6H | 2H 4D 3S 5C 6D
+when call play
+then output 1
+```
+
+* 15
+```
+given 2H 7H 3H 5H 6H | 2H 2D 2S 2C 6D
+when call play
+then output 2
+```
+
+* 16
+```
+given 2H 4D 3S 5C 6D | 2H 2D 2S 2C 6D
+when call play
+then output 2
+```
+
+* 17
+```
+given 2H 4D 3S 5C 6D | 2H 2D 2S 6C 6D
+when call play
+then output 2
 ```
 
 

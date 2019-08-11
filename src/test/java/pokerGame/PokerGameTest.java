@@ -197,6 +197,28 @@ class PokerGameTest {
 
     }
 
+    @Test
+    void should_return_player_who_has_larger_grade_pokers_when_call_play_given_two_different_grade_pokers() {
+        //given
+        List<Poker> pokerList1 = generatePokersList("2H 7H 3H 5H 6H");
+        List<Poker> pokerList2 = generatePokersList("2H 4D 3S 5C 6D");
+        List<Poker> pokerList3 = generatePokersList("2H 2D 2S 2C 6D");
+        List<Poker> pokerList4 = generatePokersList("2H 2D 2S 6C 6D");
+
+        //when
+        PokerGame pokerGame = new PokerGame();
+        int result1 = pokerGame.play(pokerList1, pokerList2);
+        int result2 = pokerGame.play(pokerList1, pokerList3);
+        int result3 = pokerGame.play(pokerList2, pokerList3);
+        int result4 = pokerGame.play(pokerList2, pokerList4);
+        //then
+        assertEquals(1, result1);
+        assertEquals(2, result2);
+        assertEquals(2, result3);
+        assertEquals(2, result4);
+
+    }
+
 
 
 
