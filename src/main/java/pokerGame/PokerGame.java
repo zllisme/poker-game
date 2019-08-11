@@ -8,6 +8,9 @@ import java.util.stream.Collector;
 
 public class PokerGame
 {
+    private final static int FIRST_PLAYER = 1;
+    private final static int SECOND_PLAYER = 2;
+
 
     public int compareMaxPoker(List<Poker> pokers1, List<Poker> pokers2) {
         Poker maxPokerInPokers1 = PokerCluster.findMaxPoker(pokers1);
@@ -34,13 +37,16 @@ public class PokerGame
     public int play(List<Poker> pokers1, List<Poker> pokers2) {
         PokerCluster pokerCluster1 = new PokerCluster(pokers1);
         PokerCluster pokerCluster2 = new PokerCluster(pokers2);
-        if(!pokerCluster1.isHasPairPoker() && !pokerCluster2.isHasPairPoker()){
+
+        int grade1 = pokerCluster1.getGrade();
+        int grade2 = pokerCluster2.getGrade();
+        if(grade1 != grade2) {
+            return grade1 > grade2 ? FIRST_PLAYER : SECOND_PLAYER;
+        }
+        if(grade1 == 1) {
             return compareMaxPoker(pokers1, pokers2);
         }
-        if(pokerCluster1.isHasPairPoker() && pokerCluster2.isHasPairPoker()){
-            return compareBothHasPair(pokerCluster1, pokerCluster2);
-        }
-        return pokerCluster1.isHasPairPoker() ? 1 : 2;
+        return compareBothHasPair(pokerCluster1, pokerCluster2);
     }
 
 }
