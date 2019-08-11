@@ -57,6 +57,7 @@ public class PokerCluster {
     }
 
     private void calculateGrade() {
+        this.grade = 1;
         if(isHasPairPoker()) {
             this.grade = this.pairPokersNumbers.size() == 1 ? 2 : 3;
         }
@@ -66,6 +67,13 @@ public class PokerCluster {
         if(isHasFourSamePoker()) {
             this.grade = 8;
         }
+        if(isSequence() && !isSameType()) {
+            this.grade = 5;
+        }
+        if(isSequence() && isSameType()) {
+            this.grade = 9;
+        }
+
 
     }
 
