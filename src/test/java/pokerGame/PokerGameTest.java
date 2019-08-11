@@ -149,6 +149,18 @@ class PokerGameTest {
 
     }
 
+    @Test
+    void should_return_true_when_call_isSequence_given_2H4D3S5C6D() {
+        //given
+        List<Poker> pokerList1 = generatePokersList("2H 4D 3S 5C 6D");
+        PokerCluster pokerCluster = new PokerCluster(pokerList1);
+        //when
+        boolean result = pokerCluster.isSequence();
+        //then
+        assertTrue(result);
+
+    }
+
 
 
 }

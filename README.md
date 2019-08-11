@@ -71,10 +71,22 @@ then output true
 
 * 10
 ```
-given 2H 2D 2S 9C KD
+given 2H 2D 2S 2C KD
 when call isHasFourSamePoker
 then output true
 ```
+* 11
+```
+given 2H 4D 3S 5C 6D
+when call isSequence
+then output true
+```
 
+* 12
+```
+given 2H 7H 3H 5H 6H
+when call isSequence
+then output true
+```
 
 

@@ -15,6 +15,7 @@ public class PokerCluster {
     private List<Integer> fourSamePokersNumbers;
 
     public PokerCluster(List<Poker> pokers) {
+        Collections.sort(pokers);
         this.pokers = pokers;
         this.pairPokersNumbers = new ArrayList<>();
         this.threeSamePokersNumbers = new ArrayList<>();
@@ -66,6 +67,25 @@ public class PokerCluster {
             this.grade = 8;
         }
 
+    }
+
+    public boolean isSequence() {
+        for (int i = 0; i < this.pokers.size() - 1; i++) {
+            if(this.pokers.get(i + 1).getNumber() - this.pokers.get(i).getNumber() != 1) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean isSameType() {
+        char baseType = this.pokers.get(0).getType();
+        for (int i = 1; i < this.pokers.size(); i++) {
+            if(this.pokers.get(i).getType() != baseType){
+                return false;
+            }
+        }
+        return true;
     }
 
     public boolean isHasPairPoker() {
